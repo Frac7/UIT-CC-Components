@@ -1,0 +1,32 @@
+{
+  "name": "uit",
+  "version": "0.0.1",
+  "description": "",
+  "keywords": [
+    "user interface technologies",
+    "components",
+    "library"
+  ],
+  "license": "",
+  "author": "",
+  "private": true,
+  "scripts": {
+    "build": "npx webpack",
+    "start": "parcel index.html --open",
+    "watch": "webpack --watch",
+    "docs": "jsdoc js/*/*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frac7/UIT.git"
+  },
+  "devDependencies": {
+    "jsdoc": "^3.6.5",
+    "parcel-bundler": "^1.12.4",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11"
+  },
+  "dependencies": {
+    "artyom.js": "^1.0.6"
+  }
+}

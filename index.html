@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="it">
+
+<head>
+  <meta charset="utf-8">
+  <title>UIT Project</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="style.css"></link>
+  <script src="dist/bundle.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <h1>UIT Project demo</h1>
+  <div class="box">
+    <h2>Single Choice Semantics</h2>
+    <p>This button has a label and a single-choice semantics, a graphic component with red background, no border, large size and Helvetica white font, a vocal component that allows you to press the button by saying <b>press red button</b>.</p>
+    <widget-container id="test-1">
+      <widget-semantic value="btn" semantics="single-choice" type="button" element="red button"></widget-semantic>
+      <widget-semantic semantics="label" text="Large button"></widget-semantic>
+      <widget-vocal event="click" keyword="press"></widget-vocal>
+      <widget-graphic color="white" background="#d32f2f" size="large" border="none"></widget-graphic>
+      <widget-graphic font="1rem Helvetica, sans-serif"></widget-graphic>
+    </widget-container>
+    <h2>Other buttons</h2>
+    <div class="inner-box">
+      <widget-container>
+        <widget-semantic semantics="single-choice" type="button"></widget-semantic>
+        <widget-semantic semantics="label" text="Medium button"></widget-semantic>
+        <widget-graphic color="antiquewhite" background="#388e3c"></widget-graphic>
+        <widget-graphic font="1rem Arial, sans-serif" size="medium"></widget-graphic>
+        <widget-graphic shadow="5px 2px 10px #81c784"></widget-graphic>
+        <widget-graphic border="none"></widget-graphic>
+      </widget-container>
+    </div>
+    <div class="inner-box">
+      <widget-container>
+        <widget-semantic semantics="single-choice" type="button"></widget-semantic>
+        <widget-semantic semantics="label" text="Button"></widget-semantic>
+        <widget-graphic color="white" border="3px solid #2196f3"></widget-graphic>
+        <widget-graphic font="italic 1rem sans-serif" background="#64b5f6"></widget-graphic>
+      </widget-container>
+    </div>
+    <div class="inner-box">
+      <widget-container>
+        <widget-semantic disabled semantics="single-choice" type="button"></widget-semantic>
+        <widget-semantic semantics="label" text="Disabled button"></widget-semantic>
+        <widget-graphic color="white" border="3px solid #2196f3"></widget-graphic>
+        <widget-graphic size="large" font="bold 1rem sans-serif" background="#64b5f6"></widget-graphic>
+      </widget-container>
+    </div>
+  </div>
+  <div class="box">
+    <h2>Selection Choice Semantics</h2>
+    <div class="inner-box">
+      <p>Single expanded selection choice semantics with colored label.</p>
+      <widget-container>
+        <widget-semantic semantics="selection-choice" element="custom-select-single-exp" value="7"></widget-semantic>
+        <widget-semantic semantics="label" text="Select expanded" element="custom-select-single-exp"></widget-semantic>
+        <widget-graphic expanded></widget-graphic>
+        <widget-graphic target="label" color="#e33371"></widget-graphic>
+      </widget-container>
+    </div>
+    <div class="inner-box">
+      <p>Multiple expanded selection choice semantics with colored label; this widget could be checked by saying <b>check multiselect expanded</b>.</p>
+      <widget-container>
+        <widget-semantic checked semantics="selection-choice" multiple element="multiselect expanded"></widget-semantic>
+        <widget-semantic semantics="label" text="Multiselect expanded" element="multiselect expanded"></widget-semantic>
+        <widget-vocal event="change" keyword="check"></widget-vocal>
+        <widget-graphic color="#f57c00"></widget-graphic>
+        <widget-graphic expanded></widget-graphic>
+      </widget-container>
+    </div>
+    <div class="inner-box">
+      <p>Large compact single selection choice semantics with label, 2 options, blue background and label and no border. The value can be changed by saying <b>choose option 1 from select</b>. The option semantics uses default selected attribute. Available options can be read by saying <b>read options from select</b>.</b></p>
+      <widget-container class="stacked">
+        <widget-semantic semantics="label" text="Select compact" element="select"></widget-semantic>
+        <widget-semantic semantics="selection-choice" element="select"></widget-semantic>
+        <widget-container>
+          <widget-semantic semantics="label" text="Option 1"></widget-semantic>
+          <widget-semantic semantics="option" value="option 1" element="select"></widget-semantic>
+        </widget-container>
+        <widget-container>
+          <widget-semantic semantics="label" text="Option 2"></widget-semantic>
+          <widget-semantic selected semantics="option" value="option 2" element="select"></widget-semantic>
+        </widget-container>
+        <widget-vocal event="change" keyword="choose"></widget-vocal>
+        <widget-vocal event="open" keyword="read options"></widget-vocal>
+        <widget-graphic color="#1976d2" target="label"></widget-graphic>
+        <widget-graphic border="none" color="white" size="large" target="selection-choice" background="#64b5f6"></widget-graphic>
+        <widget-vocal event="open" keyword="read options"></widget-vocal>
+      </widget-container>
+    </div>
+    <div class="inner-box">
+      <p>Large compact multiple selection choice semantics with colored label, 1 option, green background and no border.</p>
+      <widget-container class="stacked">
+        <widget-semantic semantics="label" text="Multiselect compact" element="custom-select-multiple-compact"></widget-semantic>
+        <widget-semantic semantics="selection-choice" multiple element="custom-select-multiple-compact"></widget-semantic>
+        <widget-container>
+          <widget-semantic semantics="label" text="Option 1"></widget-semantic>
+          <widget-semantic semantics="option" value="option 1" element="custom-select-multiple-compact"></widget-semantic>
+        </widget-container>
+        <widget-graphic background="#81c7842F" size="large" border="none" target="selection-choice"></widget-graphic>
+        <widget-graphic color="#388e3c" target="label"></widget-graphic>
+      </widget-container>
+    </div>
+  </div>
+  <div class="box">
+    <h2>Data Acquisition Semantics</h2>
+    <div class="inner-box">
+      <p>Large read only textarea having data acquisition and label semantics.</p>
+      <widget-container>
+        <widget-semantic semantics="label" text="Textarea" element="textarea"></widget-semantic>
+      </widget-container>
+      <widget-container>
+        <widget-semantic value="Hello" readonly semantics="data-acquisition" type="text" element="textarea"></widget-semantic>
+        <widget-graphic expanded size="large" target="data-acquisition"></widget-graphic>
+      </widget-container>
+    </div>
+    <div class="inner-box">
+      <p>Text field having a vocal component that allows you to type by saying <b>type [text] in text field</b>. Text can be cleaned by saying <b>delete all in text field</b>.</p>
+      <widget-container>
+        <widget-semantic semantics="data-acquisition" type="text" element="text field"></widget-semantic>
+        <widget-vocal event="change" keyword="type"></widget-vocal>
+        <widget-vocal event="clean" keyword="delete all"></widget-vocal>
+      </widget-container>
+    </div>
+    <div class="inner-box">
+      <p>Large number field having coloured input.</p>
+      <widget-container>
+        <widget-semantic semantics="data-acquisition" type="number"></widget-semantic>
+        <widget-graphic color="#115293" size="large"></widget-graphic>
+      </widget-container>
+    </div>
+  </div>
+  <div class="box">
+    <h2>Navigation Semantics</h2>
+    <p>This widget has a navigation and label semantics, text shadow and colored text. The navigation can be triggered by saying <b>go to home</b>.</p>
+    <widget-container>
+      <widget-semantic semantics="navigation" to="/home" element="home"></widget-semantic>
+      <widget-semantic semantics="label" text="This link goes to the home"></widget-semantic>
+      <widget-graphic color="#115293" size="large"></widget-graphic>
+      <widget-graphic shadow="2px 1px 5px #64b5f6"></widget-graphic>
+      <widget-vocal event="click" keyword="go to"></widget-vocal>
+    </widget-container>
+  </div>
+</body>
+
+</html>
